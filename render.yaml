@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: order-desk-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: AGENT_MODEL
+        value: claude-haiku-5-5
+      - key: WEB_ORIGIN
+        sync: false
